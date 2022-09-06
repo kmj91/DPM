@@ -4,16 +4,22 @@
 #include "framework.h"
 #include "WinMain.h"
 
-#define MAX_LOADSTRING 100
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 HWND g_hWnd;                                    // 윈도우 전역 핸들
+bool g_bActiveApp;                              // 윈도우 활성화 비활성화 상태 체크
+
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+
+
+void InitMain();        // 메인 초기화
+void MainUpdate();      // 메인 업데이트
+
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -43,6 +49,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 서버 정보는 설정파일에서 읽어오는 방식으로
     // 서버 접속 결과에 따라 [온라인], [오프라인] 처리
 
+    // 메인 초기화
+    InitMain();
+
     // 루프 업데이트 시간
     DWORD dwUpdateTime = GetTickCount();
 
@@ -58,9 +67,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         else {
             // 메인 업데이트
             if (dwUpdateTime + 10 < GetTickCount()) {
-                
-
-
+                // 업데이트
+                MainUpdate();
                 dwUpdateTime = GetTickCount();
             }
         }
@@ -111,8 +119,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   RECT rectWin = { 0, 0, WINCX, WINCY };
+   AdjustWindowRect(&rectWin, WS_OVERLAPPEDWINDOW, FALSE);
+
    g_hWnd = CreateWindowW(L"DairyProduct", L"유제품 관리", WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0,
+       rectWin.right - rectWin.left, rectWin.bottom - rectWin.top,      // 윈도우창 크기
+       nullptr, nullptr, hInstance, nullptr);
 
    if (!g_hWnd)
    {
@@ -139,6 +152,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+        // 윈도우창 활성화 여부
+    case WM_ACTIVATE:
+        g_bActiveApp = static_cast<bool>(wParam);
+        break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
