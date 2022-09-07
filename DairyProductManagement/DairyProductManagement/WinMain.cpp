@@ -53,7 +53,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     InitMain();
 
     // 루프 업데이트 시간
-    DWORD dwUpdateTime = GetTickCount();
+    ULONGLONG ullUpdateTime = GetTickCount64();
 
     // 윈도우 메시지 루프
     while (true) {
@@ -66,10 +66,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else {
             // 메인 업데이트
-            if (dwUpdateTime + 10 < GetTickCount()) {
+            if (ullUpdateTime + 10 < GetTickCount64()) {
                 // 업데이트
                 MainUpdate();
-                dwUpdateTime = GetTickCount();
+                ullUpdateTime = GetTickCount64();
             }
         }
     }

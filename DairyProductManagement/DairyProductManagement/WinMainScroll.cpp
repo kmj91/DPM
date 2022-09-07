@@ -16,7 +16,7 @@ void InitMain() {
 	// 스크린 버퍼
 	g_pScreenDib = new CScreenDib(WINCX, WINCY, 32);
 	// 스프라이트 버퍼
-	g_pSpriteDib = new CScreenDib(500, 0xff00ff);
+	g_pSpriteDib = new CSpriteDib(500, 0xff00ff);
 }
 
 //-------------------------

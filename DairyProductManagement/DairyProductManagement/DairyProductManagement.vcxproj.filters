@@ -16,6 +16,15 @@
     <Filter Include="소스 파일\00.Util">
       <UniqueIdentifier>{0bca2405-f9aa-467b-988a-b815cab9ea93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01.Manager">
+      <UniqueIdentifier>{a6faf973-0d54-44f4-b490-1e1c9604b612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Manager\00.ObjMgr">
+      <UniqueIdentifier>{0cd898ea-abfe-47ee-8bb8-6d6d3a3bf405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj">
+      <UniqueIdentifier>{30f13899-09e5-4faf-aaa7-bf631bf6c2be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -36,6 +45,12 @@
     <ClInclude Include="CSpriteDib.h">
       <Filter>소스 파일\00.Util</Filter>
     </ClInclude>
+    <ClInclude Include="CObjMgr.h">
+      <Filter>소스 파일\01.Manager\00.ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CObj.h">
+      <Filter>소스 파일\02.Obj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -49,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="CSpriteDib.cpp">
       <Filter>소스 파일\00.Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CObjMgr.cpp">
+      <Filter>소스 파일\01.Manager\00.ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CObj.cpp">
+      <Filter>소스 파일\02.Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
