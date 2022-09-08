@@ -3,7 +3,7 @@
 #ifndef __OBJMGR_H__
 #define __OBJMGR_H__
 
-class CObjMgr
+class CObjMgr final
 {
 public:
 	explicit CObjMgr();

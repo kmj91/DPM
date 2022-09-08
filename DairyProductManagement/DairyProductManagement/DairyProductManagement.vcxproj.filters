@@ -25,6 +25,15 @@
     <Filter Include="소스 파일\02.Obj">
       <UniqueIdentifier>{30f13899-09e5-4faf-aaa7-bf631bf6c2be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03.Component">
+      <UniqueIdentifier>{cf39f84d-bf44-407f-af05-01b2853c10c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02.Obj\00.ObjUI">
+      <UniqueIdentifier>{556a57fd-b31e-4be3-8df5-9e1cbd7be8a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Manager\01.ComponentMgr">
+      <UniqueIdentifier>{f1cc5441-b5fa-4499-89ea-e714e0cb7786}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -39,17 +48,23 @@
     <ClInclude Include="WinMain.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CScreenDib.h">
-      <Filter>소스 파일\00.Util</Filter>
+    <ClInclude Include="Component\CComponent.h">
+      <Filter>소스 파일\03.Component</Filter>
     </ClInclude>
-    <ClInclude Include="CSpriteDib.h">
-      <Filter>소스 파일\00.Util</Filter>
-    </ClInclude>
-    <ClInclude Include="CObjMgr.h">
+    <ClInclude Include="Manager\CObjMgr.h">
       <Filter>소스 파일\01.Manager\00.ObjMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CObj.h">
+    <ClInclude Include="Obj\CObj.h">
       <Filter>소스 파일\02.Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CScreenDib.h">
+      <Filter>소스 파일\00.Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CSpriteDib.h">
+      <Filter>소스 파일\00.Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\CComponentMgr.h">
+      <Filter>소스 파일\01.Manager\01.ComponentMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,17 +74,23 @@
     <ClCompile Include="WinMainScroll.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CScreenDib.cpp">
-      <Filter>소스 파일\00.Util</Filter>
+    <ClCompile Include="Component\CComponent.cpp">
+      <Filter>소스 파일\03.Component</Filter>
     </ClCompile>
-    <ClCompile Include="CSpriteDib.cpp">
-      <Filter>소스 파일\00.Util</Filter>
-    </ClCompile>
-    <ClCompile Include="CObjMgr.cpp">
+    <ClCompile Include="Manager\CObjMgr.cpp">
       <Filter>소스 파일\01.Manager\00.ObjMgr</Filter>
     </ClCompile>
-    <ClCompile Include="CObj.cpp">
+    <ClCompile Include="Obj\CObj.cpp">
       <Filter>소스 파일\02.Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CScreenDib.cpp">
+      <Filter>소스 파일\00.Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CSpriteDib.cpp">
+      <Filter>소스 파일\00.Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\CComponentMgr.cpp">
+      <Filter>소스 파일\01.Manager\01.ComponentMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,8 @@
 #include "framework.h"
 #include "WinMain.h"
 
-#include "CScreenDib.h"		// 스크린 버퍼
-#include "CSpriteDib.h"		// 스프라이트 버퍼
+#include "Util/CScreenDib.h"		// 스크린 버퍼
+#include "Util/CSpriteDib.h"		// 스프라이트 버퍼
 
 
 CScreenDib *g_pScreenDib;

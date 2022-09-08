@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "framework.h"
 #include <windows.h>
 #include "CSpriteDib.h"
 #include "stdio.h"

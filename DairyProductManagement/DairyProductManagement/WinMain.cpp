@@ -44,6 +44,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
     // TODO: 여기에 코드를 입력합니다.
+    // CRT 디버그
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     
     // 네트워크 서버 접속 처리
     // 서버 정보는 설정파일에서 읽어오는 방식으로
