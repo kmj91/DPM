@@ -11,7 +11,7 @@ public:
 
 public:
 	void Update();
-	void Late_Update();
+	void LateUpdate();
 	void Render();
 	void Release();
 

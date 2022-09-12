@@ -15,7 +15,7 @@ void CObjMgr::Update()
 {
 }
 
-void CObjMgr::Late_Update()
+void CObjMgr::LateUpdate()
 {
 }
 
