@@ -13,6 +13,9 @@ public:
 	virtual ~CComponent();
 
 public:
+	virtual void InitalizePrototype() = 0;
+	virtual void Initalize() = 0;
+	virtual CComponent* Clone(void* pArg = nullptr) = 0;
 	virtual void Update() = 0;
 
 public:

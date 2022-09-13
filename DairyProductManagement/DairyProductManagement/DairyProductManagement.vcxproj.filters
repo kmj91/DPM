@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\02.BaseObj\00.ObjUI">
       <UniqueIdentifier>{556a57fd-b31e-4be3-8df5-9e1cbd7be8a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03.Component\00.Transform">
+      <UniqueIdentifier>{551cff8c-3caf-4493-aa9e-5446d56d32f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -66,6 +69,9 @@
     <ClInclude Include="BaseObj\CBaseObj.h">
       <Filter>소스 파일\02.BaseObj</Filter>
     </ClInclude>
+    <ClInclude Include="Component\CTransform.h">
+      <Filter>소스 파일\03.Component\00.Transform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -91,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="BaseObj\CBaseObj.cpp">
       <Filter>소스 파일\02.BaseObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\CTransform.cpp">
+      <Filter>소스 파일\03.Component\00.Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

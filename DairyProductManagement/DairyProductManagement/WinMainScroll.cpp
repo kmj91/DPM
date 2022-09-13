@@ -4,6 +4,8 @@
 
 #include "Util/CScreenDib.h"		// 스크린 버퍼
 #include "Util/CSpriteDib.h"		// 스프라이트 버퍼
+#include "Manager/CObjMgr.h"		// 오브젝트 매니저
+#include "Manager/CComponentMgr.h"	// 컴포넌트 매니저
 
 
 CScreenDib *g_pScreenDib;

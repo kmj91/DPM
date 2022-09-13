@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClInclude Include="BaseObj\CBaseObj.h" />
     <ClInclude Include="Component\CComponent.h" />
+    <ClInclude Include="Component\CTransform.h" />
     <ClInclude Include="Manager\CComponentMgr.h" />
     <ClInclude Include="Manager\CObjMgr.h" />
     <ClInclude Include="Util\CScreenDib.h" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="BaseObj\CBaseObj.cpp" />
     <ClCompile Include="Component\CComponent.cpp" />
+    <ClCompile Include="Component\CTransform.cpp" />
     <ClCompile Include="Manager\CComponentMgr.cpp" />
     <ClCompile Include="Manager\CObjMgr.cpp" />
     <ClCompile Include="Util\CScreenDib.cpp" />
