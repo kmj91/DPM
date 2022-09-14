@@ -37,6 +37,12 @@
     <Filter Include="소스 파일\03.Component\00.Transform">
       <UniqueIdentifier>{551cff8c-3caf-4493-aa9e-5446d56d32f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.BaseObj\00.ObjUI\00.DialogBox">
+      <UniqueIdentifier>{9ef2d9f0-65cb-4aa2-8c6d-033f0a430d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03.Component\01.RectTransform">
+      <UniqueIdentifier>{13ae0a09-77cf-4627-8f42-d8488c8ef3c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -72,6 +78,15 @@
     <ClInclude Include="Component\CTransform.h">
       <Filter>소스 파일\03.Component\00.Transform</Filter>
     </ClInclude>
+    <ClInclude Include="BaseObj\CObjUI.h">
+      <Filter>소스 파일\02.BaseObj\00.ObjUI</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObj\CDialogBox.h">
+      <Filter>소스 파일\02.BaseObj\00.ObjUI\00.DialogBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\CRectTransform.h">
+      <Filter>소스 파일\03.Component\01.RectTransform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -100,6 +115,15 @@
     </ClCompile>
     <ClCompile Include="Component\CTransform.cpp">
       <Filter>소스 파일\03.Component\00.Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObj\CObjUI.cpp">
+      <Filter>소스 파일\02.BaseObj\00.ObjUI</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObj\CDialogBox.cpp">
+      <Filter>소스 파일\02.BaseObj\00.ObjUI\00.DialogBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\CRectTransform.cpp">
+      <Filter>소스 파일\03.Component\01.RectTransform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

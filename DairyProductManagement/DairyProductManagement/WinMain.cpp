@@ -18,6 +18,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 
 
 void InitMain();        // 메인 초기화
+void ReleaseMain();     // 메인 정리
 void MainUpdate();      // 메인 업데이트
 
 
@@ -75,6 +76,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             }
         }
     }
+
+    // 메인 정리
+    ReleaseMain();
 
     return (int) msg.wParam;
 }

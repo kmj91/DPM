@@ -15,6 +15,14 @@ namespace COMPONENT_SEQ
 	};
 }
 
+namespace OBJECT_SEQ
+{
+	enum SEQ {
+		UI,
+		END
+	};
+}
+
 namespace MOUSE_STATE
 {
 	enum MK {

@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "CBaseObj.h"
 
-CBaseObj::CBaseObj()
+CBaseObj::CBaseObj() : m_seq{ objSeq::END }, m_pTransform{ nullptr }
 {
 }
 

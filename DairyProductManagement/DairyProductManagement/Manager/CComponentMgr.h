@@ -1,3 +1,7 @@
+// 컴포넌트 매니저
+
+// 컴포넌트 프로토타입 관리
+
 #pragma once
 
 #ifndef __COMPONENTMGR_H__

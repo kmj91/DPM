@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "CTransform.h"
 
-CTransform::CTransform()
+CTransform::CTransform() : m_stMat{ Matrix::Identity() }
 {
 }
 
