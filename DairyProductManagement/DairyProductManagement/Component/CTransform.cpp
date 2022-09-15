@@ -17,7 +17,7 @@ void CTransform::Initalize()
 {
 }
 
-CComponent* CTransform::Clone(void* pArg)
+CComponent* CTransform::Clone(Arg* pArg)
 {
 	return nullptr;
 }

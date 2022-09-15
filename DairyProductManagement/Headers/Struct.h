@@ -83,6 +83,28 @@ struct Size {
 	float fHeight;
 };
 
+// 아규먼트 값
+union ArgValue {
+	ArgValue(Vector3 _vec3Value) : vec3Vlaue{ _vec3Value }
+	{}
+	ArgValue(Size _sizeValue) : sizeVlaue{ _sizeValue }
+	{}
+
+	Vector3 vec3Vlaue;
+	Size sizeVlaue;
+	float fVlaue;
+	int iVlaue;
+	WCHAR* wchValue;
+};
+
+// 아규먼트 가변 데이터
+struct Arg {
+	explicit Arg() : umapArg{}
+	{}
+
+	unordered_map<ARG_TYPE::TYPE, ArgValue> umapArg;
+};
+
 struct Transform {
 	explicit Transform() : fX{ 0.f }, fY{ 0.f }, fZ{ 0.f }
 	{}

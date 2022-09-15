@@ -18,7 +18,7 @@ public:
     // CComponent을(를) 통해 상속됨
     virtual void InitalizePrototype() override;
     virtual void Initalize() override;
-    virtual CComponent* Clone(void* pArg) override;
+    virtual CComponent* Clone(Arg* pArg) override;
     virtual void Update() override;
 
 public:

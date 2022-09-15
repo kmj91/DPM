@@ -16,15 +16,19 @@ protected:
 	using comSeq = COMPONENT_SEQ::SEQ;
 	using objSeq = OBJECT_SEQ::SEQ;
 	using mk = MOUSE_STATE::MK;
+	using comTag = COMPONENT_TAG::TAG;
 
 public:
 	explicit CBaseObj();
 	virtual ~CBaseObj();
 
+	CBaseObj(CBaseObj& _copy);
+
 public:
-	virtual void Initalize() = 0;
+	virtual void InitalizePrototype() = 0;
+	virtual void Initalize(Arg* pArg = nullptr) = 0;
 	virtual void Release() = 0;
-	virtual CBaseObj* Clone(void* pArg = nullptr) = 0;
+	virtual CBaseObj* Clone(Arg* pArg = nullptr) = 0;
 	virtual void Input() = 0;
 	virtual void Update() = 0;
 	virtual void LateUpdate() = 0;
@@ -32,12 +36,21 @@ public:
 	virtual void Click(mk enMk) = 0;
 
 public:
-	objSeq GetSeq() { return m_seq; }
-	void SetSeq(objSeq enSeq) { m_seq = enSeq; }
+	//--------------------------------------
+	// 오브젝트 컴포넌트 추가
+	// _enComSeq : 컴포넌트 시퀀스 번호
+	// _pComponent : 컴포넌트 객체
+	// 반환값 : 성공 true, 실패 false
+	//--------------------------------------
+	bool AddComponent(comSeq _enComSeq, CComponent* _pComponent);
+
+public:
+	objSeq GetObjSeq() { return m_objSeq; }
+	void SetObjSeq(objSeq enObjSeq) { m_objSeq = enObjSeq; }
 
 private:
-	objSeq m_seq;
-	list<CComponent*> m_arrComponetList[comSeq::END];	// 오브젝트가 가지고있는 컴포넌트들
+	objSeq m_objSeq;									// 오브젝트 시퀀스 번호
+	list<CComponent*> m_arrComponentList[comSeq::END];	// 오브젝트가 가지고있는 컴포넌트들
 
 public:
 	CTransform* m_pTransform;							// 위치 정보 컴포넌트

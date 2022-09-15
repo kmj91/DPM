@@ -28,12 +28,17 @@ void InitMain() {
 	// 오브젝트 매니저
 	g_pObjMgr = new CObjMgr();
 
-	//컴포넌트
+	// 컴포넌트
 	CComponent* pCreateCom = new CRectTransform();
 	g_pComponentMgr->AddComponentPorototype(L"RectTransform", pCreateCom);
 
+	// 오브젝트
 	CBaseObj* pCreateObj = new CDialogBox();
-	pCreateObj->Initalize();
+	g_pObjMgr->AddObjectPorototype(L"DialogBox", pCreateObj);
+	Arg arg;
+	arg.umapArg.emplace(make_pair(ARG_TYPE::POSITION, Vector3(20.f, 20.f, 0.f)));
+	arg.umapArg.emplace(make_pair(ARG_TYPE::SIZE, Size(400.f, 500.f)));
+	g_pObjMgr->CloneObject(L"DialogBox", &arg);
 }
 
 //-------------------------
@@ -48,5 +53,5 @@ void ReleaseMain() {
 // 메인 루프 업데이트 함수
 //-------------------------
 void MainUpdate() {
-	
+	g_pObjMgr->Render();
 }

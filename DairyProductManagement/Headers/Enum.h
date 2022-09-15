@@ -11,6 +11,8 @@ namespace COMPONENT_SEQ
 		LATE_PROC,
 		COLLISION,
 		RENDER,
+		SCRIPT,
+		NO_UPDATE,
 		END
 	};
 }
@@ -31,6 +33,23 @@ namespace MOUSE_STATE
 		L_SHIFT,
 		L_CONTROL,
 		END
+	};
+}
+
+namespace ARG_TYPE
+{
+	enum TYPE {
+		POSITION,
+		SIZE,
+		END,
+	};
+}
+
+namespace COMPONENT_TAG
+{
+	enum TAG {
+		TRANSFORM,
+		END,
 	};
 }
 

@@ -1,8 +1,6 @@
 #include "framework.h"
 #include "CComponentMgr.h"
 
-#include "Component/CComponent.h"
-
 CComponentMgr::CComponentMgr() : m_umapComponent{}
 {
 }
@@ -18,7 +16,9 @@ bool CComponentMgr::AddComponentPorototype(const TCHAR* pName, CComponent* pProt
 	if (m_umapComponent.end() != iter_find) {
 		return false;
 	}
-
+	// 프로토타입 초기화
+	pPrototype->InitalizePrototype();
+	// 프로토타입 컴포넌트 추가
 	m_umapComponent.insert(make_pair(pName, pPrototype));
 
     return true;
@@ -31,6 +31,6 @@ CComponent* CComponentMgr::CloneComponent(const TCHAR* pName)
 	if (m_umapComponent.end() == iter_find) {
 		return nullptr;
 	}
-
+	// 프로토타입 컴포넌트 복제 반환
 	return iter_find->second->Clone();
 }

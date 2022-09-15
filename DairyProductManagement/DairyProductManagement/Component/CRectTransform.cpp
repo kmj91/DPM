@@ -11,15 +11,20 @@ CRectTransform::~CRectTransform()
 
 void CRectTransform::InitalizePrototype()
 {
+    SetComSeq(comSeq::NO_UPDATE);
+    SetComTag(comTag::TRANSFORM);
 }
 
 void CRectTransform::Initalize()
 {
 }
 
-CComponent* CRectTransform::Clone(void* pArg)
+CComponent* CRectTransform::Clone(Arg* pArg)
 {
-    return nullptr;
+    CRectTransform* pClone = new CRectTransform(*this);
+    pClone->Initalize();
+
+    return pClone;
 }
 
 void CRectTransform::Update()

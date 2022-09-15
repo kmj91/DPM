@@ -23,12 +23,15 @@
 #include <algorithm>
 #include <memory>
 #include <time.h>
-
-#include "Include.h"
-
-#pragma comment(lib, "msimg32.lib")
+#include <string>
 
 using namespace std;
+
+#include "Include.h"
+#include "Component/CComponent.h"
+#include "BaseObj/CBaseObj.h"
+
+#pragma comment(lib, "msimg32.lib")
 
 #ifdef _DEBUG
 

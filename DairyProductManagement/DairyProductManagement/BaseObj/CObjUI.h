@@ -14,11 +14,14 @@ public:
 	explicit CObjUI();
 	virtual ~CObjUI();
 
+	CObjUI(CObjUI& _copy);
+
 public:
 	// CBaseObj을(를) 통해 상속됨
-	virtual void Initalize() = 0;
+	virtual void InitalizePrototype() = 0;
+	virtual void Initalize(Arg* pArg = nullptr) = 0;
 	virtual void Release() = 0;
-	virtual CBaseObj* Clone(void* pArg) = 0;
+	virtual CBaseObj* Clone(Arg* pArg = nullptr) = 0;
 	virtual void Input() = 0;
 	virtual void Update() = 0;
 	virtual void LateUpdate() = 0;

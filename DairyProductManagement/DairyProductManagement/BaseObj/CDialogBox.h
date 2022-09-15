@@ -14,11 +14,14 @@ public:
     explicit CDialogBox();
     virtual ~CDialogBox();
 
+    CDialogBox(CDialogBox& _copy);
+
 public:
     // CBaseObj을(를) 통해 상속됨
-    virtual void Initalize() override;
+    virtual void InitalizePrototype() override;
+    virtual void Initalize(Arg* pArg = nullptr) override;
     virtual void Release() override;
-    virtual CBaseObj* Clone(void* pArg) override;
+    virtual CBaseObj* Clone(Arg* pArg = nullptr) override;
     virtual void Input() override;
     virtual void Update() override;
     virtual void LateUpdate() override;
