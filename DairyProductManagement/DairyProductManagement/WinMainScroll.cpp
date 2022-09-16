@@ -2,9 +2,6 @@
 #include "framework.h"
 #include "WinMain.h"
 
-#include "Util/CScreenDib.h"			// 스크린 버퍼
-#include "Util/CSpriteDib.h"			// 스프라이트 버퍼
-
 #include "Component/CRectTransform.h"	// UI 위치 정보
 
 #include "BaseObj/CDialogBox.h"			// UI 다이얼로그 박스
@@ -36,7 +33,7 @@ void InitMain() {
 	CBaseObj* pCreateObj = new CDialogBox();
 	g_pObjMgr->AddObjectPorototype(L"DialogBox", pCreateObj);
 	Arg arg;
-	arg.umapArg.emplace(make_pair(ARG_TYPE::POSITION, Vector3(20.f, 20.f, 0.f)));
+	arg.umapArg.emplace(make_pair(ARG_TYPE::POSITION, Vector3(0.f, 0.f, 0.f)));
 	arg.umapArg.emplace(make_pair(ARG_TYPE::SIZE, Size(400.f, 500.f)));
 	g_pObjMgr->CloneObject(L"DialogBox", &arg);
 }
@@ -54,4 +51,6 @@ void ReleaseMain() {
 //-------------------------
 void MainUpdate() {
 	g_pObjMgr->Render();
+
+	g_pScreenDib->DrawBuffer(g_hWnd);
 }

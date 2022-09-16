@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "CObjUI.h"
 
-CObjUI::CObjUI() : m_listHasObj{}
+CObjUI::CObjUI()
 {
 }
 
@@ -9,20 +9,19 @@ CObjUI::~CObjUI()
 {
 }
 
-CObjUI::CObjUI(CObjUI& _copy) : CBaseObj(_copy)
+CObjUI::CObjUI(CObjUI& _copy) : super(_copy)
 {
-	auto iter = _copy.m_listHasObj.begin();
-	auto iterEnd = _copy.m_listHasObj.end();
-	for (; iter != iterEnd; ++iter) {
-		m_listHasObj.emplace_back((*iter)->Clone());
-	}
+	
 }
 
-void CObjUI::AddObject(CBaseObj* _hasObject)
+void CObjUI::InitalizePrototype()
 {
-	if (_hasObject == nullptr) {
-		return;
-	}
+	SetObjSeq(objSeq::UI);
 
-	m_listHasObj.emplace_back(_hasObject);
+	// 컴포넌트 추가
+	// 렉트 트랜스폼
+	CComponent* pComponent = g_pComponentMgr->CloneComponent(L"RectTransform");
+	if (pComponent != nullptr) {
+		AddComponent(pComponent->GetComSeq(), pComponent);
+	}
 }

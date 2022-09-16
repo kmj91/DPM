@@ -26,6 +26,7 @@ void CScreenDib::CreateDibBuffer(int iWidth, int iHeight, int iColorBit) {
 	m_stDibInfo.bmiHeader.biHeight = -iHeight;
 	m_stDibInfo.bmiHeader.biPlanes = 1;
 	m_stDibInfo.bmiHeader.biBitCount = iColorBit;
+	m_stDibInfo.bmiHeader.biCompression = BI_RGB;
 	m_stDibInfo.bmiHeader.biSizeImage = 0;
 	m_stDibInfo.bmiHeader.biClrUsed = 0;
 	m_stDibInfo.bmiHeader.biClrImportant = 0;
@@ -43,6 +44,8 @@ void CScreenDib::CreateDibBuffer(int iWidth, int iHeight, int iColorBit) {
 
 	// 윈도우 크기의 버퍼 생성
 	m_bypBuffer = (BYTE*)malloc(m_iBufferSize);
+	
+	SecureZeroMemory(m_bypBuffer, m_iBufferSize);
 }
 
 

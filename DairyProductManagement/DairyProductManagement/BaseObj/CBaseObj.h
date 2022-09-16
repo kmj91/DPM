@@ -17,6 +17,7 @@ protected:
 	using objSeq = OBJECT_SEQ::SEQ;
 	using mk = MOUSE_STATE::MK;
 	using comTag = COMPONENT_TAG::TAG;
+	using argType = ARG_TYPE::TYPE;
 
 public:
 	explicit CBaseObj();
@@ -43,14 +44,21 @@ public:
 	// 반환값 : 성공 true, 실패 false
 	//--------------------------------------
 	bool AddComponent(comSeq _enComSeq, CComponent* _pComponent);
-
+	//--------------------------------------
+	// UI 포함 오브젝트 추가
+	// _hasObject : 포함할 오브젝트
+	//--------------------------------------
+	void AddObject(CBaseObj* _hasObject);
 public:
 	objSeq GetObjSeq() { return m_objSeq; }
 	void SetObjSeq(objSeq enObjSeq) { m_objSeq = enObjSeq; }
 
 private:
 	objSeq m_objSeq;									// 오브젝트 시퀀스 번호
+
+protected:
 	list<CComponent*> m_arrComponentList[comSeq::END];	// 오브젝트가 가지고있는 컴포넌트들
+	list<CBaseObj*> m_listHasObj;						// 포함 오브젝트
 
 public:
 	CTransform* m_pTransform;							// 위치 정보 컴포넌트

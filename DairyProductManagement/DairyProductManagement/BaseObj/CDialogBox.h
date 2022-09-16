@@ -10,6 +10,9 @@
 class CDialogBox final :
     public CObjUI
 {
+private:
+    using super = CObjUI;
+
 public:
     explicit CDialogBox();
     virtual ~CDialogBox();

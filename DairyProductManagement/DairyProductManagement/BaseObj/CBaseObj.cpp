@@ -3,7 +3,7 @@
 
 #include "Component/CTransform.h"
 
-CBaseObj::CBaseObj() : m_objSeq{ objSeq::END }, m_arrComponentList{}, m_pTransform{ nullptr }
+CBaseObj::CBaseObj() : m_objSeq{ objSeq::END }, m_arrComponentList{}, m_listHasObj{}, m_pTransform{ nullptr }
 {
 }
 
@@ -29,6 +29,13 @@ CBaseObj::CBaseObj(CBaseObj& _copy) : m_objSeq{ _copy.m_objSeq }, m_pTransform{ 
 			++iter;
 		}
 	}
+	// 포함 오브젝트 복제
+	auto iter = _copy.m_listHasObj.begin();
+	auto iterEnd = _copy.m_listHasObj.end();
+	while (iter != iterEnd) {
+		m_listHasObj.emplace_back((*iter)->Clone());
+		++iter;
+	}
 }
 
 bool CBaseObj::AddComponent(comSeq _enComSeq, CComponent* _pComponent)
@@ -52,4 +59,13 @@ bool CBaseObj::AddComponent(comSeq _enComSeq, CComponent* _pComponent)
 	m_arrComponentList[_enComSeq].emplace_back(_pComponent);
 
 	return true;
+}
+
+void CBaseObj::AddObject(CBaseObj* _hasObject)
+{
+	if(_hasObject == nullptr) {
+		return;
+	}
+
+	m_listHasObj.emplace_back(_hasObject);
 }

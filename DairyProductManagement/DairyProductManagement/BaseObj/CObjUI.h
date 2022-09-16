@@ -10,6 +10,9 @@
 class CObjUI abstract :
 	public CBaseObj
 {
+private:
+	using super = CBaseObj;
+
 public:
 	explicit CObjUI();
 	virtual ~CObjUI();
@@ -18,7 +21,7 @@ public:
 
 public:
 	// CBaseObj을(를) 통해 상속됨
-	virtual void InitalizePrototype() = 0;
+	virtual void InitalizePrototype() override;
 	virtual void Initalize(Arg* pArg = nullptr) = 0;
 	virtual void Release() = 0;
 	virtual CBaseObj* Clone(Arg* pArg = nullptr) = 0;
@@ -33,16 +36,6 @@ public:
 	virtual void Cloase() = 0;
 	virtual void Show() = 0;
 	virtual void Hide() = 0;
-
-public:
-	//--------------------------------------
-	// UI 포함 오브젝트 추가
-	// _hasObject : 포함할 오브젝트
-	//--------------------------------------
-	void AddObject(CBaseObj* _hasObject);
-	
-protected:
-	list<CBaseObj*> m_listHasObj;
 };
 
 #endif // !__OBJUI_H__

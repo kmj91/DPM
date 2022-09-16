@@ -3,6 +3,7 @@
 
 #include "Manager/CComponentMgr.h"
 #include "Component/CTransform.h"
+#include "Component/CRectTransform.h"
 
 
 CDialogBox::CDialogBox()
@@ -13,21 +14,14 @@ CDialogBox::~CDialogBox()
 {
 }
 
-CDialogBox::CDialogBox(CDialogBox& _copy) : CObjUI(_copy)
+CDialogBox::CDialogBox(CDialogBox& _copy) : super(_copy)
 {
 
 }
 
 void CDialogBox::InitalizePrototype()
 {
-	SetObjSeq(objSeq::UI);
-
-	// 컴포넌트 추가
-	// 렉트 트랜스폼
-	CComponent* pComponent = g_pComponentMgr->CloneComponent(L"RectTransform");
-	if (pComponent != nullptr) {
-		AddComponent(pComponent->GetComSeq(), pComponent);
-	}
+	super::InitalizePrototype();
 }
 
 void CDialogBox::Initalize(Arg* pArg)
@@ -36,11 +30,23 @@ void CDialogBox::Initalize(Arg* pArg)
 		return;
 	}
 
+	// 가변 초기화
 	auto iter = pArg->umapArg.begin();
 	auto iterEnd = pArg->umapArg.end();
 	while (iter != iterEnd) {
-		// 가변 초기화 문제
-		iter->first;
+		switch (iter->first)
+		{
+			// 위치 정보 초기화
+		case argType::POSITION:
+			m_pTransform->SetPos(iter->second.vec3Vlaue);
+			break;
+			// 사이즈 초기화
+		case argType::SIZE:
+			static_cast<CRectTransform*>(m_pTransform)->SetSize(iter->second.sizeVlaue);
+			break;
+		default:
+			break;
+		}
 		++iter;
 	}
 }
@@ -71,6 +77,8 @@ void CDialogBox::LateUpdate()
 
 void CDialogBox::Render()
 {
+	g_pSpriteDib->DrawBackground(0xffffff, m_pTransform->GetPosX(), m_pTransform->GetPosY(), static_cast<CRectTransform*>(m_pTransform)->GetWidth(), static_cast<CRectTransform*>(m_pTransform)->GetHeight(),
+		g_pScreenDib->GetDibBuffer(), g_pScreenDib->GetWidth(), g_pScreenDib->GetHeight(), g_pScreenDib->GetPitch(), 0.5, false, false);
 }
 
 void CDialogBox::Click(mk enMk)

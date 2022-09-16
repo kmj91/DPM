@@ -21,6 +21,12 @@ void CObjMgr::LateUpdate()
 
 void CObjMgr::Render()
 {
+	auto iter = m_arrObjectList->begin();
+	auto iterEnd = m_arrObjectList->end();
+	while (iter != iterEnd) {
+		(*iter)->Render();
+		++iter;
+	}
 }
 
 void CObjMgr::Release()
