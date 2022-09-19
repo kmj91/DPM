@@ -39,7 +39,8 @@ namespace MOUSE_STATE
 namespace ARG_TYPE
 {
 	enum TYPE {
-		POSITION,
+		AC_POSITION,
+		RC_POSITION,
 		SIZE,
 		END,
 	};

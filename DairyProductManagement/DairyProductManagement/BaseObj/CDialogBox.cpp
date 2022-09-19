@@ -36,9 +36,13 @@ void CDialogBox::Initalize(Arg* pArg)
 	while (iter != iterEnd) {
 		switch (iter->first)
 		{
-			// 위치 정보 초기화
-		case argType::POSITION:
-			m_pTransform->SetPos(iter->second.vec3Vlaue);
+			// 절대 좌표 초기화
+		case argType::AC_POSITION:
+			m_pTransform->SetAcPos(iter->second.vec3Vlaue);
+			break;
+			// 상대 좌표 초기화
+		case argType::RC_POSITION:
+			m_pTransform->SetRcPos(iter->second.vec3Vlaue);
 			break;
 			// 사이즈 초기화
 		case argType::SIZE:
@@ -77,7 +81,7 @@ void CDialogBox::LateUpdate()
 
 void CDialogBox::Render()
 {
-	g_pSpriteDib->DrawBackground(0xffffff, m_pTransform->GetPosX(), m_pTransform->GetPosY(), static_cast<CRectTransform*>(m_pTransform)->GetWidth(), static_cast<CRectTransform*>(m_pTransform)->GetHeight(),
+	g_pSpriteDib->DrawBackground(0xffffff, m_pTransform->GetAcPosX(), m_pTransform->GetAcPosY(), static_cast<CRectTransform*>(m_pTransform)->GetWidth(), static_cast<CRectTransform*>(m_pTransform)->GetHeight(),
 		g_pScreenDib->GetDibBuffer(), g_pScreenDib->GetWidth(), g_pScreenDib->GetHeight(), g_pScreenDib->GetPitch(), 0.5, false, false);
 }
 

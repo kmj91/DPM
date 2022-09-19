@@ -33,7 +33,7 @@ void InitMain() {
 	CBaseObj* pCreateObj = new CDialogBox();
 	g_pObjMgr->AddObjectPorototype(L"DialogBox", pCreateObj);
 	Arg arg;
-	arg.umapArg.emplace(make_pair(ARG_TYPE::POSITION, Vector3(0.f, 0.f, 0.f)));
+	arg.umapArg.emplace(make_pair(ARG_TYPE::AC_POSITION, Vector3(20.f, 20.f, 0.f)));
 	arg.umapArg.emplace(make_pair(ARG_TYPE::SIZE, Size(400.f, 500.f)));
 	g_pObjMgr->CloneObject(L"DialogBox", &arg);
 }

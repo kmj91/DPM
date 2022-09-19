@@ -13,7 +13,8 @@ CBaseObj::~CBaseObj()
 
 CBaseObj::CBaseObj(CBaseObj& _copy) : m_objSeq{ _copy.m_objSeq }, m_pTransform{ nullptr }
 {
-	CComponent* pCopyComponent{nullptr};
+	CComponent* pCopyComponent{ nullptr };
+	CBaseObj* pCopyObj{ nullptr };
 
 	// 컴포넌트 복제
 	for (int iCnt = 0; iCnt < comSeq::END; ++iCnt) {
@@ -25,6 +26,7 @@ CBaseObj::CBaseObj(CBaseObj& _copy) : m_objSeq{ _copy.m_objSeq }, m_pTransform{ 
 			// 위치 정보 컴포넌트면 멤버 변수로 저장
 			if (pCopyComponent->GetComTag() == comTag::TRANSFORM) {
 				m_pTransform = static_cast<CTransform*>(pCopyComponent);
+				m_pTransform->m_pObject = this;
 			}
 			++iter;
 		}
@@ -33,7 +35,9 @@ CBaseObj::CBaseObj(CBaseObj& _copy) : m_objSeq{ _copy.m_objSeq }, m_pTransform{ 
 	auto iter = _copy.m_listHasObj.begin();
 	auto iterEnd = _copy.m_listHasObj.end();
 	while (iter != iterEnd) {
-		m_listHasObj.emplace_back((*iter)->Clone());
+		pCopyObj = (*iter)->Clone();
+		pCopyObj->m_pTransform->m_pParent = m_pTransform;
+		m_listHasObj.emplace_back(pCopyObj);
 		++iter;
 	}
 }

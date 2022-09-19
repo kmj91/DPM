@@ -49,6 +49,7 @@ public:
 	// _hasObject : 포함할 오브젝트
 	//--------------------------------------
 	void AddObject(CBaseObj* _hasObject);
+
 public:
 	objSeq GetObjSeq() { return m_objSeq; }
 	void SetObjSeq(objSeq enObjSeq) { m_objSeq = enObjSeq; }

@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "CTransform.h"
 
-CTransform::CTransform() : m_stMat{ Matrix::Identity() }
+CTransform::CTransform() : m_stAcMat{ Matrix::Identity() }, m_stRcMat{ Matrix::Identity() }, m_pObject{ nullptr }, m_pParent{ nullptr }
 {
 }
 
