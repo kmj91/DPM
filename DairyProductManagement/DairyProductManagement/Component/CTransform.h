@@ -23,22 +23,82 @@ public:
 
 public:
     float GetAcPosX() { return m_stAcMat.m41; }
-    void SetAcPosX(float fPosX) { m_stAcMat.m41 = fPosX; }
+    void SetAcPosX(float fPosX) {
+        m_stAcMat.m41 = fPosX;
+        if (m_pParent == nullptr) {
+            m_stRcMat = m_stAcMat;
+            return;
+        }
+        m_stRcMat.m41 = m_stAcMat.m41 - m_pParent->m_stAcMat.m41;
+    }
     float GetAcPosY() { return m_stAcMat.m42; }
-    void SetAcPosY(float fPosY) { m_stAcMat.m42 = fPosY; }
+    void SetAcPosY(float fPosY) {
+        m_stAcMat.m42 = fPosY;
+        if (m_pParent == nullptr) {
+            m_stRcMat = m_stAcMat;
+            return;
+        }
+        m_stRcMat.m42 = m_stAcMat.m42 - m_pParent->m_stAcMat.m42;
+    }
     float GetAcPosZ() { return m_stAcMat.m43; }
-    void SetAcPosZ(float fPosZ) { m_stAcMat.m43 = fPosZ; }
+    void SetAcPosZ(float fPosZ) {
+        m_stAcMat.m43 = fPosZ;
+        if (m_pParent == nullptr) {
+            m_stRcMat = m_stAcMat;
+            return;
+        }
+        m_stRcMat.m43 = m_stAcMat.m43 - m_pParent->m_stAcMat.m43;
+    }
     Vector3 GetAcPos() { return Vector3(m_stAcMat.m41, m_stAcMat.m42, m_stAcMat.m43); }
-    void SetAcPos(Vector3 _vecPos) { m_stAcMat.m41 = _vecPos.fX; m_stAcMat.m42 = _vecPos.fY; m_stAcMat.m43 = _vecPos.fZ; }
+    void SetAcPos(Vector3 _vecPos) {
+        m_stAcMat.m41 = _vecPos.fX; m_stAcMat.m42 = _vecPos.fY; m_stAcMat.m43 = _vecPos.fZ;
+        if (m_pParent == nullptr) {
+            m_stRcMat = m_stAcMat;
+            return;
+        }
+        m_stRcMat.m41 = m_stAcMat.m41 - m_pParent->m_stAcMat.m41;
+        m_stRcMat.m42 = m_stAcMat.m42 - m_pParent->m_stAcMat.m42;
+        m_stRcMat.m43 = m_stAcMat.m43 - m_pParent->m_stAcMat.m43;
+    }
 
     float GetRcPosX() { return m_stRcMat.m41; }
-    void SetRcPosX(float fPosX) { m_stRcMat.m41 = fPosX; }
+    void SetRcPosX(float fPosX) {
+        m_stRcMat.m41 = fPosX;
+        if (m_pParent == nullptr) {
+            m_stAcMat = m_stRcMat;
+            return;
+        }
+        m_stAcMat.m41 = m_pParent->m_stAcMat.m41 + m_stRcMat.m41;
+    }
     float GetRcPosY() { return m_stRcMat.m42; }
-    void SetRcPosY(float fPosY) { m_stRcMat.m42 = fPosY; }
+    void SetRcPosY(float fPosY) {
+        m_stRcMat.m42 = fPosY;
+        if (m_pParent == nullptr) {
+            m_stAcMat = m_stRcMat;
+            return;
+        }
+        m_stAcMat.m42 = m_pParent->m_stAcMat.m42 + m_stRcMat.m42;
+    }
     float GetRcPosZ() { return m_stRcMat.m43; }
-    void SetRcPosZ(float fPosZ) { m_stRcMat.m43 = fPosZ; }
+    void SetRcPosZ(float fPosZ) {
+        m_stRcMat.m43 = fPosZ;
+        if (m_pParent == nullptr) {
+            m_stAcMat = m_stRcMat;
+            return;
+        }
+        m_stAcMat.m43 = m_pParent->m_stAcMat.m43 + m_stRcMat.m43;
+    }
     Vector3 GetRcPos() { return Vector3(m_stRcMat.m41, m_stRcMat.m42, m_stRcMat.m43); }
-    void SetRcPos(Vector3 _vecPos) { m_stRcMat.m41 = _vecPos.fX; m_stRcMat.m42 = _vecPos.fY; m_stRcMat.m43 = _vecPos.fZ; }
+    void SetRcPos(Vector3 _vecPos) {
+        m_stRcMat.m41 = _vecPos.fX; m_stRcMat.m42 = _vecPos.fY; m_stRcMat.m43 = _vecPos.fZ;
+        if (m_pParent == nullptr) {
+            m_stAcMat = m_stRcMat;
+            return;
+        }
+        m_stAcMat.m41 = m_pParent->m_stAcMat.m41 + m_stRcMat.m41;
+        m_stAcMat.m42 = m_pParent->m_stAcMat.m42 + m_stRcMat.m42;
+        m_stAcMat.m43 = m_pParent->m_stAcMat.m43 + m_stRcMat.m43;
+    }
     
 private:
     Matrix m_stAcMat;       // Àý´ë ÁÂÇ¥
